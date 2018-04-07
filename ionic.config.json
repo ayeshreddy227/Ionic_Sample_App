@@ -1,0 +1,8 @@
+{
+  "name": "consumerapp",
+  "app_id": "3e6c3fe4",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
