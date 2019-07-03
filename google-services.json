@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "706683846152",
+    "firebase_url": "https://pushnotification-e35b5.firebaseio.com",
+    "project_id": "pushnotification-e35b5",
+    "storage_bucket": "pushnotification-e35b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706683846152:android:5f744a0e8a5d6eab",
+        "android_client_info": {
+          "package_name": "com.sulogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706683846152-shv2m7lk4420u5ug3sdfknqucjsr6mmr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCy_5UcnL20l-mszy3roqFi2v2wQasflgc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

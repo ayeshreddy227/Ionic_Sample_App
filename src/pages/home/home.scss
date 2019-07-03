@@ -1,3 +1,116 @@
 page-home {
+    .slide{
+      height: 10%;
+    
+      }
+      
+      .name{
+        font-weight: bold;
+        
+      }
+      // .arrow {
+      //   padding-left: 200px
+      // }
+      .location {
+        align-content: center;
 
-}
+        margin-left: 30%;
+   
+        // margin-right: 30%;
+      }
+      .card2{
+        background-color: #E8E8E8;
+        margin-left: -3%;
+        margin-right: -3%;
+        width: 106%;
+        height: 100%;
+        right: 0%;
+      }
+      .image{
+        width: 95%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+      }
+      .slideimage{
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+      }
+      .image1{
+        object-fit: cover;
+      }
+      .cut-text { 
+        text-overflow: ellipsis;
+        overflow: hidden; 
+        width: 160px; 
+        height: 1.2em; 
+        white-space: nowrap;
+      }
+
+      
+      .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 2.0em;
+          width: 100%;
+          font-weight: bold;
+          color: #fff;
+        }
+      //   .list .item {
+      //     border-bottom: 1px solid gray;
+      // }
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 52%;
+          width: 100%;
+          color: #fff;
+        }
+      
+      }
+    //barcode popup
+    ion-modal,
+    .show-page {
+      // transparent black background overlay
+      background-color: rgba(0, 0, 0, .5) !important;
+      padding: 50px !important;
+    }
+    .toolbar-background {
+      color: red !important;
+    }
+    ion-modal.modal-wrapper {
+      transform: translateY(30%) !important;
+    }
+    ion-page.modal {
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .modal-backdrop-bg {
+      background-color: #000;
+      opacity: 0;
+    }
+    .active .modal-backdrop-bg {
+      opacity: 0.5;
+    }
+  }
+  .footerbtn {
+    background-color:#7FFFD4;
+  }
+  ion-modal.inset-modal {
+    // transparent black background overlay
+    background-color: rgba(0, 0, 0, .5) !important;
+    transition: opacity .25 ease-in-out;
+    padding-top: 50vh;
+  }
+  

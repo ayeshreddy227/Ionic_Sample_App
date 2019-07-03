@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar transparent>
+      <ion-title>Promotions</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content fullscreen>
+    <section margin-top margin-bottom *ngIf="promotions && promotions.length">
+      <ion-slides autoplay="2000" >
+        <ion-slide *ngFor="let promotion of promotions">
+          <ion-card>
+            <div class="the-header">
+              <div class="header-text">
+                <!-- <h1>{{promotion.name}}</h1>
+                <p>{{promotion.name}}</p> -->
+              </div>
+              <div>
+                <img height="100rem" [src]="promotion.background_image"/>
+              </div>
+              <button ion-fab>
+                <ion-icon name="ios-pricetags-outline"></ion-icon>
+              </button>
+            </div>
+            
+            <div class="the-content" padding>
+              <h2>{{promotion.name}}</h2>
+
+              <div padding>
+                  <h2>
+                    {{promotion.promotion_data.description}}
+                  </h2>
+              </div>
+              <button ion-button block [style.background]=promotion.color (click)="openoffersmodal(promotion)">Purchase</button>
+            </div>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </section>
+  </ion-content>
+  

@@ -1,0 +1,74 @@
+<!--
+  Generated template for the OffersqrPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<!-- <ion-header>
+  <ion-navbar (click)="dismiss()">
+      <ion-icon  name="arrow-down" ></ion-icon>
+  </ion-navbar>
+</ion-header> -->
+<ion-content padding class="no-scroll">
+    <!-- <ion-col col-6>
+        
+        <button ion-button full color="danger" (click)="dismiss()">
+              <!-- Cancel -->
+        <!-- </button> -->
+    <!-- </ion-col> -->
+    <ion-row>
+        <ion-col *ngIf="transaction_status.status!='feedback'">
+            <button ion-button float-right clear=true small=true (click)="dismiss()">Cancel</button>
+        </ion-col>
+        <ion-col *ngIf="transaction_status.status=='feedback'">
+            <button  ion-button float-right (click)="requestmsg()">Submit</button>
+        </ion-col>
+        <ion-col *ngIf="transaction_status.status=='message'">
+          <button  ion-button float-right (click)="feedback()">Submit</button>
+      </ion-col>
+      </ion-row>
+      <section *ngIf="transaction_status.status=='success'" class="c-container">
+  
+        <div class="o-circle c-container__circle o-circle__sign--success">
+          <div class="o-circle__sign"></div>  
+        </div>   
+
+      </section>
+      <button *ngIf="transaction_status.status=='success'" ion-button float-right  (click)="startfeedback()">Feedback</button>
+      <div *ngIf="transaction_status.status=='feedback'">
+
+              <rating [(ngModel)]="rate" 
+                readOnly="false" 
+                max="5" 
+                emptyStarIconName="star-outline" 
+                halfStarIconName="star-half" 
+                starIconName="star" 
+                nullable="false" 
+                (ngModelChange)="ratingevent($event)"> <!--use it when you need to do something when user clicks on a star. in case you only need to change ngModel property, this property can be ommited.-->
+              </rating>
+        </div>
+        <div *ngIf="transaction_status.status=='message'">
+        <ion-item>
+          <ion-label floating>Message</ion-label>
+          <ion-input type="text" [(ngModel)]="message"></ion-input>
+        </ion-item> 
+            
+        
+      </div>
+
+      <section *ngIf="transaction_status.status=='failure'">
+        <div class="o-circle c-container__circle o-circle__sign--failure">
+            <div class="o-circle__sign"></div>  
+          </div>   
+      </section>
+      
+      
+  <!-- <ion-card> -->
+      <div *ngIf="transaction_status.status=='unknown'" text-center class="qr">
+        <qr-code [value]="QRData" [size]="150" canvas = true></qr-code>
+      <div>Show the QR Code to redeem</div>  
+      </div>
+  <!-- </ion-card> -->
+    <!-- <qr-code [value]='QRData.description' [size]="250" canvas = true></qr-code> -->
+</ion-content>

@@ -1,17 +1,105 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar  class="bg-modal">
+      <!-- <ion-icon float-right name="options" large></ion-icon>
+      <ion-select [(ngModel)]="gaming" interface="popover">
+          
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+      </ion-select>
+     -->
+     <!-- <ion-item> -->
+      <!-- <ion-label>Home</ion-label> -->
+
+      <!-- <button ion-button (click)="openHintModal()">Default</button> -->
+          <ion-select  style="float:middle;font-weight: bold;" #mySelect interface="action-sheet" placeholder="Nearby" [(ngModel)]="searchtype" (ionChange)="searchtypechange($event)">
+            <ion-option value="Nearby">Nearby</ion-option>
+            <ion-option value="Visited">Visited</ion-option>
+          </ion-select>
+
+      
+    <!-- </ion-item> -->
+    <!-- <h6  class="location" ><ion-icon name="pin">  </ion-icon>    Nearby Restaurants</h6> -->
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content class="card-background-page">
+    <ion-card *ngIf="slideData && slideData.length">
+        <ion-slides class="slide" autoplay="2000" loop="true" pager="true">
+            <ion-slide *ngFor= "let agent of slideData" (click)="OpenListing(agent)">
+               <img class= "slideimage" src={{agent.primary_image}}/>
+            </ion-slide>
+        </ion-slides>
+    
+      </ion-card>
+      
+  <ion-list (click)="OpenListing(item)" tappable  *ngFor= "let item of agents ">
+      <!-- <ion-card >
+        <img src={{item.primary_image}}/>
+      </ion-card> -->
+      <img class="image" src={{item.primary_image}}/>
+      <ion-item class="namecss">
+          <h2 class="name">{{item.name}} <h3 float-right><ion-icon style="color:#ffd800;font-size: 20px;" name="star"></ion-icon> {{item.feedback}} ({{item.totalreviews}})</h3></h2>
+          <p>{{item.category}}</p>
+      <!-- <ion-row> -->
+          <!-- <ion-col>
+            <h2 class="name">{{item.name}} <h6 float-right><ion-icon name="star"></ion-icon> {{item.feedback}} ({{item.totalreviews}})</h6>
+            </h2>
+            <p>{{item.category}}</p>
+          </ion-col> -->
+          <!-- <ion-col class="name">
+              <h6 float-right><ion-icon name="star"></ion-icon> {{item.feedback}} ({{item.totalreviews}})</h6>
+            </ion-col> -->
+            <!-- <ion-item-divider>
+            </ion-item-divider> -->
+      <!-- </ion-row> -->
+      <!-- <ion-row>
+          <ion-col>
+              <h6>{{item.category}}</h6>
+            </ion-col>
+      </ion-row> -->
+      
+    </ion-item>
+   
+  </ion-list>
+  <!-- <ion-fab  bottom right (click)="openSelect()">
+    <button ion-fab><ion-icon name="funnel" (click)="openSelect()"></ion-icon></button>
+  </ion-fab> -->
 </ion-content>
+<!-- <ion-content iframe class="card2" >
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+    <div *ngIf="slideData.length > 0">
+  <ion-card>
+    <ion-slides class="slide" autoplay="2000" loop="true" pager="true">
+        <ion-slide *ngFor= "let agent of slideData" (click)="OpenListing(agent)">
+           <img class= "image" src={{agent.primary_image}}/>
+        </ion-slide>
+    </ion-slides>
+
+  </ion-card>
+</div>
+  <div *ngIf="agents.length > 0">
+  <ion-list no-lines>
+    <ion-card (click)="OpenListing(item)" tappable  *ngFor= "let item of agents ">
+      <img src={{item.primary_image}}/>
+      <ion-card-content>
+          <ion-row>
+              <ion-col>
+                <h2>{{item.name}}   {{item.category}}</h2>
+              </ion-col>
+              <ion-col>
+                  <h2 float-right><ion-icon name="star"></ion-icon>  {{item.totalreviews}}</h2>
+                </ion-col>
+          </ion-row>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</div>
+  
+</ion-content> -->

@@ -1,0 +1,125 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<style>
+  h1 {
+    font-size: 14px;
+    font-weight: bold;
+}
+p {
+  font-size: 10px;
+  text-transform: lowercase;
+}
+</style>
+<ion-content padding>
+    <ion-refresher (ionRefresh)="onstartup($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+    <ion-list>
+        <ion-list-header>
+          
+          <ion-row>
+            <ion-col>
+                Profile
+            </ion-col>
+            <ion-col>
+            <button ion-button round color="light" class="login-button" (click)="goToLogout()">Log Out</button>
+  
+           </ion-col>
+          </ion-row>
+        </ion-list-header>
+        <ion-item>
+        <ion-row>
+            <ion-col >
+              <h1>{{consumer.name}}</h1>
+          </ion-col>
+         
+        </ion-row>
+        <ion-row>
+            <ion-col >
+              <p>{{consumer.phone}}</p>
+            </ion-col>
+            <ion-col >
+                <!-- <ion-img style="width: 20px; height: 20px;" src="../../assets/imgs/15082-200.png"></ion-img> -->
+              <p>{{consumer.formated_birthday}}</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col >
+                  <p>{{consumer.email}}</p>
+              </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+      <ion-list >
+          <ion-list-header *ngIf="transactions?.length < 1">No Recent Orders</ion-list-header>
+          <ion-list-header *ngIf="transactions?.length >= 1">Recent Orders</ion-list-header>
+ 
+          <ion-item *ngFor="let transaction of transactions">
+            <ion-row>
+              <ion-col>
+                <h1>{{transaction.agentName}}</h1>
+              </ion-col>
+              <ion-col>
+                <h6>{{transaction.date}} at {{transaction.time}}</h6>
+              </ion-col>
+            </ion-row>
+            
+            <ion-row>
+              <ion-col>
+                  <p>{{transaction.bill}} Points added to your wallet</p>
+              </ion-col> 
+            </ion-row>
+            <ion-row *ngIf="transaction.redeem_points==''">
+              <ion-col>
+                  <p>No Redeem points spent.</p>
+              </ion-col>
+            </ion-row>
+              <ion-row *ngIf="transaction.redeem_points!=''"> 
+                <ion-col>
+                    <p>{{transaction.redeem_points}} Reddem points spent during this</p>
+                </ion-col>
+              </ion-row>
+              
+          </ion-item>
+          <!-- <ion-item>
+              <ion-row>
+                <ion-col>
+                  <h1>KFC</h1>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                    <p>Jubilee-Hills</p>
+                </ion-col> 
+              </ion-row>
+                <ion-row>
+                  <ion-col>
+                      <p>100 Redeem Points</p>
+                  </ion-col>
+                </ion-row>
+                
+            </ion-item>
+            <ion-item>
+                <ion-row>
+                  <ion-col>
+                    <h1>KFC</h1>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                      <p>Jubilee-Hills</p>
+                  </ion-col> 
+                </ion-row>
+                  <ion-row>
+                    <ion-col>
+                        <p>100 Redeem Points</p>
+                    </ion-col>
+                  </ion-row>
+                  
+              </ion-item> -->
+      </ion-list>
+  </ion-content>

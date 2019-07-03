@@ -1,0 +1,114 @@
+<ion-header>
+        <ion-navbar color="primary">
+        </ion-navbar>
+    </ion-header>
+<ion-icon name="menu"></ion-icon>
+<!-- <ion-content parallax-header no-bounce class="bg-modal"> -->
+<ion-content no-bounce class="bg-modal">
+    <!-- <ion-header>
+        <ion-navbar color="primary">
+        </ion-navbar>
+    </ion-header> -->
+    <div  class="header-image" [ngStyle]="{'background-image': 'url(' + agentData.primary_image +')'}"></div>
+    <div class="main-content" text-wrap text-center>
+        <!-- <div class="circular"></div> -->
+        <h2>{{agentData.name}}</h2>
+        <ion-row>
+                <ion-col>
+                        <p class="profile-description"><ion-icon style="color:#ffd800" name="star"></ion-icon>  {{agentData.feedback}}</p>
+                </ion-col>
+                <ion-col>
+                    <p class="profile-description">{{agentData.category}}</p>
+                </ion-col>
+                <ion-col>
+                        <p *ngIf="consumeragent.rewardpoints" class="profile-description"> <ion-icon name="cash" style="color:#85bb65"></ion-icon>  {{consumeragent.rewardpoints}}</p>
+                        <p *ngIf="!consumeragent.rewardpoints" class="profile-description"> <ion-icon name="cash" style="color:#85bb65"></ion-icon>  0</p>
+
+                    </ion-col>
+                    </ion-row>
+
+        <!-- <hr> -->
+        <ion-row>
+                <!-- <ion-col>
+                    <p class="profile-description"><ion-icon name="star"></ion-icon>  {{agentData.totalreviews}}</p>
+                </ion-col> -->
+                <ion-col>
+                    <p float-center class="profile-description"><ion-icon name="time-outline"></ion-icon>  {{agentData.timings}}</p>
+                </ion-col>
+                <!-- <ion-col>
+                    <p class="profile-description">{{agentData.consumeragent.rewardpoints}}</p>
+                </ion-col> -->
+        </ion-row>
+        <!-- <p class="profile-description">{{user.description}}</p> -->
+        <!-- <hr> -->
+        <ion-item align-text="center">
+        <h4 *ngIf="offers?.length < 1">No offers currently available for this Restaurant</h4>
+        <h4 *ngIf="offers?.length >= 1">Currently Avalable Offers</h4>
+    </ion-item>
+        <ion-item  class="item-ribbon" *ngFor="let offer of offers" (click)="openoffersmodal(offer)">
+            <div *ngIf="offer.enabled==false" style="pointer-events:none;opacity: 0.6;">
+            <span class="ribbon cruzeiro">
+              <span>{{offer.offer_data.rewardpoints}} pts</span>
+            </span>
+          <div>
+            <h6>{{offer.offer_data.description}}</h6>
+            <p>{{offer.expiry_msg}}</p>
+          </div>
+        </div>
+        <div *ngIf="offer.enabled==true">
+            <span class="ribbon cruzeiro">
+              <span>{{offer.offer_data.rewardpoints}} pts</span>
+            </span>
+          <div>
+            <h6>{{offer.offer_data.description}}</h6>
+            <p>{{offer.expiry_msg}}</p>
+          </div>
+        </div>
+        </ion-item>
+        
+        
+        <!-- <h2>Get in touch</h2>
+        <hr>
+        <a href="#" button ion-button block color="linkedin" icon-start>
+            <ion-icon name='logo-linkedin'></ion-icon>
+            LinkedIn
+        </a>
+        <a href="#" button ion-button block color="fb" icon-start>
+            <ion-icon name='logo-facebook'></ion-icon>
+            Facebook
+        </a>
+        <a href="#" button ion-button block color="danger" icon-start>
+            <ion-icon name='logo-youtube'></ion-icon>
+            Youtube
+        </a> -->
+    </div>
+    <!-- <rating [(ngModel)]="rate" 
+    readOnly="false" // default value, so it can be ommited
+    max="5" // default value
+    emptyStarIconName="star-outline" // default value
+    halfStarIconName="star-half" // default value
+    starIconName="star" // default value
+    nullable="false" // default value
+    (ngModelChange)="onModelChange($event)"> -->
+    <ion-fab  bottom right (click)="openHintModal()">
+            <button ion-fab >
+                 <ion-icon name="qr-scanner"></ion-icon>
+            </button>
+           
+            <!-- <ion-fab-list side="top">
+              <button ion-fab>Facebook</button>
+              <button ion-fab>Twitter</button>
+              <button ion-fab>Youtube</button>
+            </ion-fab-list> -->
+            <!-- <ion-fab-list side="left">
+              <button ion-fab>Vimeo</button>
+            </ion-fab-list> -->
+          </ion-fab>
+</ion-content>
+<!-- <ion-footer class="transparent-footer">
+       
+    <!-- <div padding> -->
+            <!-- <button ion-button class="footerbtn" full (click)="openHintModal()">Click to Scan</button> -->
+        <!-- </div> -->
+        
+<!-- </ion-footer> --> 
